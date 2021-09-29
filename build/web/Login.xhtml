@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/template/site.xhtml"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+    <ui:define name="content">
+        <main class="d-flex w-100">
+            <div class="container d-flex flex-column">
+                <div class="row vh-100">
+                    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                        <div class="d-table-cell align-middle">
+                            <div class="text-center mt-4">
+                                <h1 class="h2">Giriş Yap</h1>
+
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="m-sm-4">
+
+
+                                        <h:form> 
+                                            <style>
+                                                .error{color:red}  
+                                            </style>
+
+                                            <div class="form-group">
+                                                <label for="inputEmail4">Kullanıcı Adı</label>
+                                                <h:inputText class="form-control" value="#{user_bean.username}" 
+                                                             id="username"
+                                                             required="true"
+                                                             requiredMessage="Kullanıcı türü adı boş olamaz!"
+                                                             >
+                                                  
+                                                </h:inputText>
+
+                                                <h:message for="username" styleClass="error"/> <br></br>
+                                            </div>
+											
+											                                            <div class="form-group">
+                                                <label for="inputEmail4">Şifre</label>
+                                                <h:inputText class="form-control" value="#{user_bean.password}" 
+                                                             id="password"
+                                                             required="true"
+                                                             requiredMessage="Kullanıcı türü adı boş olamaz!"
+                                                             >
+                                                  
+                                                </h:inputText>
+
+                                                <h:message for="password" styleClass="error"/> <br></br>
+                                            </div>
+											
+
+
+
+ <h:commandButton styleClass="btn btn-success" value="Login" action="#{userController.doLogin(user_bean)}"/>
+ <br></br><h:outputLabel value="#{userController.loginError}" rendered="true" style="color:red"/>
+
+
+
+                                        </h:form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"      
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/site.xhtml">
+
+    <ui:define name="content">
+
+        <style>
+            .error{color:red}  
+        </style>
+       
+
+        <h:form>
+            <main class="d-flex w-100">
+                <div class="container d-flex flex-column">
+                    <div class="row">
+                        <div class="text-center mt-4">
+                            <h1 class="h2">YÖNETİCİ ANA SAYFASI</h1>
+                            <h2>Hoşgeldin, #{user_bean.username}</h2>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <center>   <h5 class="card-title mb-0">Kullanıcılar</h5></center>
+                                </div>
+                                <div class="card-body">
+                                    <center><p class="card-text">Kayıtlı tüm kullanıcıları görmek için tıklayın.<br></br><br></br></p> </center>
+                                    <center> <h:commandButton  styleClass="btn btn-warning" value="Kullanıcıları Göster" action="ShowUsers"/> </center>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <center> <h5 class="card-title mb-0">Kullanıcı Silme Arayüzü</h5> </center>
+                                </div>
+                                <div class="card-body">
+                                    <center>  <p class="card-text">Kayıtlı tüm kullanıcılardan birini silmek için tıklayın.<br></br><br></br></p> </center>
+                                    <center>  <h:commandButton styleClass="btn btn-danger" value="Kullanıcı Sil" action="DeleteUser"/> </center>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <center> <h5 class="card-title mb-0">Yetki Paneli</h5></center>
+                                </div>
+                                <div class="card-body">
+                                    <center>  <p class="card-text">Yeni bir yetki sınıfı oluşturmak için tıklayın.<br></br><br></br></p> </center>
+                                    <center>   <h:commandButton styleClass="btn btn-success" value="Yetki Ekle" action="AddUserType"/> </center>
+                                </div>
+                            </div>
+                        </div>        
+
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <center> <h5 class="card-title mb-0">Çıkış</h5></center>
+                                </div>
+                                <div class="card-body">
+                                    <center> <p class="card-text">Çıkış yapmak için tıklayın.<br></br><br></br></p> </center>
+                                    <center><h:commandButton styleClass="btn btn-dark" value="Çıkış Yap" action="Login"/></center> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+            </main>
+        </h:form>
+
+
+    </ui:define>
+
+
+</ui:composition>

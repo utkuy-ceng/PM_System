@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"      
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                template="/template/site.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Products</title>
+
+    </h:head>
+    <ui:define name="content"> 
+        <main class="content">
+        
+
+        <h:form>
+            	<div class="text-center mt-4">
+							<h1 class="h2">Ürün Arama</h1> 
+							<p class="lead">
+								 Örn.Bilezik için "Bil" veya Kolye için "olye"
+							</p>
+						</div>
+
+            <h:dataTable styleClass="table table-striped" value = "#{products_controller.searchList}" rows="#{products_controller.searchList.size()}" var = "item" border="1" headerClass="tableHeader" > 
+
+
+
+                <h:column>
+                    <f:facet name="header"> Ürün Adı </f:facet>
+                    <h:outputText value="#{item.p_name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Ürün Materyali </f:facet>
+                    <h:outputText value="#{item.p_class}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header" > Ürün Fiyatı </f:facet>
+                    <h:outputText value="#{item.p_price}"  />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Ürün Açıklaması </f:facet>
+                    <h:outputText value="#{item.p_property}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Toplam Ürün Miktarı </f:facet>
+                    <h:outputText value="#{item.p_total}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header"> Satın al </f:facet>
+                    <h:form>
+                        <h:commandButton styleClass="btn btn-success" value="Al" action="#{products_controller.buy(item.p_id)}">
+                        </h:commandButton></h:form>
+                </h:column>
+
+            </h:dataTable>  
+
+            Ürün Adı -> Örn.Bilezik için "Bil" veya Kolye için "olye" <h:inputText class="form-control" value="#{products_controller.searchWord}"
+                                                                                   a:placeholder="Tüm ürünleri görmek için tekrar listeleyin" ></h:inputText><br></br>
+            <h:commandButton styleClass="btn btn-success" value="Ara ve tekrar listele"> 
+            </h:commandButton>
+
+        </h:form>
+            </main>
+    </ui:define>
+</ui:composition>

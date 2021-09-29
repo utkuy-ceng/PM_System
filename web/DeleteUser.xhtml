@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"   
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/site.xhtml">
+
+    <ui:define name="content">
+        <main class="content">
+
+
+            <h:form>
+                <div class="text-center mt-4">
+                    <h1 class="h2">Kullanıcı Yönetimi</h1>
+                    <p class="lead">
+                        Sistemde kayıtlı bulunan kullanıcıları buradan silebilirsiniz.
+                    </p>
+                </div>
+
+                <h:dataTable styleClass="table table-striped" value="#{userController.list}" rows="#{userController.list.size()}" var="tempUser" border="1">
+
+                    <h:column>
+                        <f:facet name="header"> Name </f:facet>
+                            #{tempUser.name}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> Surname </f:facet>
+                            #{tempUser.surname}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> Username </f:facet>
+                            #{tempUser.username}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> Secret Answer </f:facet>
+                            #{tempUser.secretAnswer}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> Type </f:facet>
+                            #{tempUser.type}
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header"> Aksiyon </f:facet>
+                        
+                        <h:commandButton styleClass="btn btn-danger" value="Sil" action="#{userController.deleteUser(tempUser.id)}">
+                            </h:commandButton>
+                        
+                    </h:column>
+
+
+                </h:dataTable>
+                <br></br><br></br>
+
+
+            </h:form>
+        </main>
+    </ui:define>
+</ui:composition>
+
